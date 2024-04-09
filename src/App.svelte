@@ -6,6 +6,7 @@
   import Header from "./components/Header.svelte";
   import PollsList from "./components/PollsList.svelte";
   import Tabs from "./shared/Tabs.svelte";
+  import { fade, scale, slide } from "svelte/transition";
 
   let items = [ "Current Polls", "Add New Polls"];
   let activeItem = 'Current Polls'
@@ -50,12 +51,16 @@
 
 <Header />
 
-<main class="mx-24 my-12 gap-8 flex flex-col items-center justify-center">
+<main class="mx-3 md:mx-24 my-12 gap-8 flex flex-col items-center justify-center">
   <Tabs {items} {activeItem} on:tabChange={tabChangeHandler}/>
   {#if  activeItem === 'Current Polls'}
-    <PollsList {polls} />
+    <div in:fade >
+      <PollsList/>
+    </div>
   {:else if activeItem === 'Add New Polls'}
-    <CreatePollForm on:add={handleAdd} />
+    <div in:fade>
+      <CreatePollForm on:add={handleAdd} />
+    </div>
   {/if}
 </main>
 

@@ -39,7 +39,7 @@
     }
 </script>
 
-<form on:submit|preventDefault={submitHandler} class="p-8 bg-gray-200 w-[400px] flex flex-col items-center justify-center gap-8 rounded-lg">
+<form on:submit|preventDefault={submitHandler} class="p-8 bg-gray-200 w-full md:w-[400px] flex flex-col items-center justify-center gap-8 rounded-lg">
     <h1 class="font-bold uppercase text-xl">Create New <span class="text-[#FF3E00]">Poll</span></h1>
     <div class="form-field flex flex-col w-full gap-2">
         <label for="question" class="font-semibold text-sm text-gray-800">Poll Question: </label>

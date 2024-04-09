@@ -6,9 +6,9 @@
 
 </script>
 
-<div class="pollList flex items-center justify-center gap-8 w-full overflow-hidden flex-wrap">
+<div class="pollList flex items-center justify-center  gap-8 w-full overflow-hidden flex-wrap">
     {#each $PollStore as poll (poll.id)}
-        <div in:fade out:scale|local animate:flip={{duration : 500}}>
+        <div in:fade out:scale|local animate:flip={{duration : 400}}>
             <PollListDetail {poll}/>
         </div>
     {/each}
