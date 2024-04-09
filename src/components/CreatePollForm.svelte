@@ -1,5 +1,6 @@
 <script>
     import { createEventDispatcher } from 'svelte'
+  import PollStore from '../stores/PollStores';
     let fields = { question: '', answerA: '', answerB: ''};
     let error = { question: '', answerA: '', answerB: ''};
     let valid = false
@@ -30,8 +31,10 @@
 
         if(valid){
             let poll = {...fields, votesA: 0, votesB: 0, id: Math.random()}
-            console.log(fields)
-            dispatch('add', poll)
+            PollStore.update(currentPoll => {
+                return [poll, ...currentPoll]
+            })
+            dispatch('add')
         }
     }
 </script>
